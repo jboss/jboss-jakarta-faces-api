@@ -36,7 +36,6 @@
     <groupId>org.jboss.spec.javax.faces</groupId>
     <artifactId>jboss-jsf-api_2.3_spec</artifactId>
     <version>3.0.0.CR2-SNAPSHOT</version>
-
     <name>Jakarta Server Faces</name>
     <description>
         Jakarta Server Faces defines an MVC framework for building user interfaces for web applications, 
@@ -310,7 +309,6 @@
                             <classifier>sources</classifier>
                             <outputDirectory>src/main/java</outputDirectory>
                             <includes>**/*.java</includes>
-                            <excludes>**/JsfRIRuntimePopulator_.java</excludes>
                         </artifactItem>
                         
                         <artifactItem>
