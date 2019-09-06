@@ -534,7 +534,7 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
-            <version>4.0.2</version>
+            <version>4.0.3</version>
             <scope>provided</scope>
         </dependency>
         
