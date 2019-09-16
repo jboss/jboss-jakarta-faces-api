@@ -46,7 +46,7 @@
     <url>https://github.com/eclipse-ee4j/faces-api</url>
     
     <properties>
-        <mojarra.version>2.3.12</mojarra.version>
+        <mojarra.version>2.3.13</mojarra.version>
         <non.final>false</non.final>
         <extension.name>javax.faces</extension.name>
         <spec.version>2.3</spec.version>
