@@ -268,17 +268,6 @@
                     </instructions>
                 </configuration>
             </plugin>
-
-            <!-- Add the OSGi Manifest to the main jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                    </archive>
-                </configuration>
-            </plugin>
             
             <!-- Disable signing as we don't do this on jboss artifacts -->
             <plugin>
@@ -439,6 +428,9 @@
                         <include>META-INF/LICENSE.md</include>
                         <include>META-INF/NOTICE.md</include>
                     </includes>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
                 </configuration>
             </plugin>
             
