@@ -253,6 +253,9 @@
                         <manifest>
                             <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
                         </manifest>
+                        <manifestEntries>
+                            <Automatic-Module-Name>beta.jboss.jsf.api_2_3</Automatic-Module-Name>
+                        </manifestEntries>
                     </archive>
                     <instructions>
                         <Specification-Title>JSR-000372: JavaServer(TM) Faces 2.3 API</Specification-Title>
