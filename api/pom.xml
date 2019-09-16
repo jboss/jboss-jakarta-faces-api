@@ -54,6 +54,13 @@
         <findbugs.skip>false</findbugs.skip>
         <findbugs.exclude>exclude-common.xml</findbugs.exclude>
         <findbugs.threshold>Low</findbugs.threshold>
+
+        <version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>2.0.0.Final</version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>
+        <version.org.jboss.spec.javax.ejb.jboss-ejb-api_3.2_spec>2.0.0.Final</version.org.jboss.spec.javax.ejb.jboss-ejb-api_3.2_spec>
+        <version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec>2.0.0.Final</version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec>
+        <version.org.jboss.spec.javax.servlet.jsp.jboss-jsp-api_2.3_spec>2.0.0.Final</version.org.jboss.spec.javax.servlet.jsp.jboss-jsp-api_2.3_spec>
+        <version.org.jboss.spec.javax.websockets>2.0.0.Final</version.org.jboss.spec.javax.websockets>
+        <version.org.jboss.spec.javax.xml.bind.jboss-jaxb-api_2.3_spec>2.0.0.Final</version.org.jboss.spec.javax.xml.bind.jboss-jaxb-api_2.3_spec>
     </properties>
     
     <licenses>
@@ -532,16 +539,16 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
     
     <dependencies>
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>4.0.3</version>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec}</version>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
-            <groupId>jakarta.servlet.jsp</groupId>
-            <artifactId>jakarta.servlet.jsp-api</artifactId>
-            <version>2.3.6</version>
+            <groupId>org.jboss.spec.javax.servlet.jsp</groupId>
+            <artifactId>jboss-jsp-api_2.3_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.servlet.jsp.jboss-jsp-api_2.3_spec}</version>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
@@ -554,25 +561,25 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
             <optional>true</optional>
         </dependency>
 
-        <dependency>    
-            <groupId>jakarta.websocket</groupId>
-            <artifactId>jakarta.websocket-api</artifactId>
-            <version>1.1.2</version>
+        <dependency>
+            <groupId>org.jboss.spec.javax.websocket</groupId>
+            <artifactId>jboss-websocket-api_1.1_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.websockets}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.jboss.spec.javax.el</groupId>
             <artifactId>jboss-el-api_3.0_spec</artifactId>
-            <version>1.0.13.Final</version>
+            <version>${version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec}</version>
             <scope>provided</scope>
         </dependency>
-    
+
         <!-- Needs to be updated still -->
         <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>2.0.SP1</version>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <version>2.0.2</version>
             <scope>provided</scope>
         </dependency>
 
@@ -582,7 +589,7 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
             <version>2.0.2</version>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>jakarta.json</groupId>
             <artifactId>jakarta.json-api</artifactId>
@@ -592,21 +599,20 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
         </dependency>
 
         <dependency>
-            <groupId>jakarta.ejb</groupId>
-            <artifactId>jakarta.ejb-api</artifactId>
-            <version>3.2.5</version>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.ejb.jboss-ejb-api_3.2_spec}</version>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
 
         <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>2.3.2</version>
-            <scope>provided</scope>
+            <groupId>org.jboss.spec.javax.xml.bind</groupId>
+            <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.xml.bind.jboss-jaxb-api_2.3_spec}</version>
             <optional>true</optional>
         </dependency>
-        
+
         <!-- 
            Depend on the source jar of the full implementation Mojarra jar. This is used for
            unpacking and re-compiling. This jar is created by executing mvn clean install
@@ -619,14 +625,14 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
             <scope>provided</scope>
             <classifier>sources</classifier>
         </dependency>
-   
-        
-         <!-- 
+
+
+         <!--
             For the vendor SPI implementations shipped with Mojarra.
             Although we don't use them and they don't end up in the API jar, they
             still need to be compiled
          -->
-         
+
          <!-- Jetty 6 -->
         <dependency>
             <groupId>org.mortbay.jetty</groupId>
