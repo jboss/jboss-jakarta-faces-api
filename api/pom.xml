@@ -46,6 +46,8 @@
     <url>https://github.com/eclipse-ee4j/faces-api</url>
     
     <properties>
+        <mojarra.group.id>org.glassfish</mojarra.group.id>
+        <mojarra.artifact.id>jakarta.faces</mojarra.artifact.id>
         <mojarra.version>2.3.14</mojarra.version>
         <non.final>false</non.final>
         <extension.name>javax.faces</extension.name>
@@ -301,18 +303,18 @@
                 <configuration>
                     <artifactItems>
                         <artifactItem>
-                            <groupId>org.glassfish</groupId>
-                            <artifactId>jakarta.faces</artifactId>
+                            <groupId>${mojarra.group.id}</groupId>
+                            <artifactId>${mojarra.artifact.id}</artifactId>
                             <version>${mojarra.version}</version>
                             <classifier>sources</classifier>
-                            <outputDirectory>src/main/java</outputDirectory>
-                            <includes>**/*.java</includes>
+                            <outputDirectory>target/generated-sources/impl</outputDirectory>
+                            <includes>com/**/*.java</includes>
                             <excludes>**/JsfRIRuntimePopulator_.java</excludes>
                         </artifactItem>
                         
                         <artifactItem>
-                            <groupId>org.glassfish</groupId>
-                            <artifactId>jakarta.faces</artifactId>
+                            <groupId>${mojarra.group.id}</groupId>
+                            <artifactId>${mojarra.artifact.id}</artifactId>
                             <version>${mojarra.version}</version>
                             <classifier>sources</classifier>
                             <outputDirectory>src/main/resources</outputDirectory>
@@ -321,6 +323,24 @@
                     </artifactItems>
                 </configuration>
             </plugin>
+
+            <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>add-source</goal>
+                    </goals>
+                    <configuration>
+                        <sources>
+                            <source>target/generated-sources/impl</source>
+                        </sources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
             
             <!-- 
                 Clean unpacked sources jar
@@ -334,7 +354,6 @@
                         <phase>clean</phase>
                         <configuration>
                             <target>
-                                <delete dir="src/main/java"/>
                                 <delete dir="src/main/resources"/>
                             </target>
                         </configuration>
@@ -609,8 +628,8 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
            in the [mojarra home]/impl project.       
         -->
         <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>jakarta.faces</artifactId>
+            <groupId>${mojarra.group.id}</groupId>
+            <artifactId>${mojarra.artifact.id}</artifactId>
             <version>${mojarra.version}</version>
             <scope>provided</scope>
             <classifier>sources</classifier>
